@@ -52,5 +52,19 @@ public class board2ServiceImpl implements board2Service {
 		// TODO Auto-generated method stub
 		return bd2.update(board2);
 	}
+
+	//조회수
+	@Override
+	public int readcount(int num) {
+		// TODO Auto-generated method stub
+		return bd2.readcount(num);
+	}
+
+	//총 게시물 개수
+	@Override
+	public int listcount(int num) {
+		// TODO Auto-generated method stub
+		return bd2.listcount(num);
+	}
 	
 }

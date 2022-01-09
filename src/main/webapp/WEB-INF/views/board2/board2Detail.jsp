@@ -17,29 +17,36 @@
 <form>
 <table border=1>
 <caption>글 상세 페이지</caption>
+
 <tr>
 <th>번호</th>
-<th>제목</th>
-<th>조회수</th>
+<td>${board2list.num}</th>
 </tr>
 
-
-
+<tr>
+<th>제목</th>
+<td>${board2list.title}</td>
+</tr>
 
 <tr>
-<td>${board2list.num}</td>
-<td>${board2list.title}</td>
+<th>조회수</th>
 <td>${board2list.readcount}</td>
 </tr>
 
 <tr>
-<th>작성자:${board2list.writer}</th>
-<th colspan="2">작성일:<fmt:formatDate value="${board2list.regdate}" pattern="yyyy-MM-dd"/></th>
+<th>작성자</th>
+<td>${board2list.writer}</td>
+</tr>
+
+<tr>
+<th>작성일</th>
+<td><fmt:formatDate value="${board2list.regdate}" pattern="yyyy-MM-dd"/></td>
 </tr>
 
 
 <tr>
-<td colspan="3">내용:${board2list.content}</td>
+<th>내용</th>
+<td>${board2list.content}</td>
 </tr>
 
 <tr>

@@ -50,5 +50,19 @@ public class board2DaoImpl implements board2Dao {
 		// TODO Auto-generated method stub
 		return st.update("board2.update", board2);
 	}
+
+	//조회수
+	@Override
+	public int readcount(int num) {
+		// TODO Auto-generated method stub
+		return st.update("board2.readcount", num);
+	}
+
+	//총 게시물 개수
+	@Override
+	public int listcount(int num) {
+		// TODO Auto-generated method stub
+		return st.selectOne("board2.listcount", num);
+	}
 	
 }

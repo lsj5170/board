@@ -8,7 +8,7 @@
 </insert>
 
 <select id="board2_list" parameterType="board2" resultType="board2">
- select * from board2
+ select * from board2 order by num desc
 </select>
 
 <select id="select" parameterType="int" resultType="board2">
@@ -22,5 +22,13 @@
 <update id="update" parameterType="board2">
  update board2 set title=#{title},content=#{content} where num=#{num}
 </update>
+
+<update id="readcount" parameterType="int">
+ update board2 set readcount = readcount+1 where num=#{num}
+</update>
+
+<select id="listcount" resultType="int">
+ select count(num) from board2
+</select>
 
 </mapper>

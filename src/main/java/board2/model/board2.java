@@ -11,6 +11,9 @@ public class board2 {
 	private int readcount;   //조회수
 	private Date regdate;     //날짜
 	
+	//페이징처리
+	private int startRow;  //시작 페이지( 1,11,21,31 ...)
+	private int endRow;    //마지막 페이지 ( 10,20,30 ...)
 	
 	public int getNum() {
 		return num;
@@ -47,6 +50,21 @@ public class board2 {
 	}
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
+	}
+	
+	
+	
+	public int getStartRow() {
+		return startRow;
+	}
+	public void setStartRow(int startRow) {
+		this.startRow = startRow;
+	}
+	public int getEndRow() {
+		return endRow;
+	}
+	public void setEndRow(int endRow) {
+		this.endRow = endRow;
 	}
 
 	

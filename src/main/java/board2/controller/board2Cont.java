@@ -1,5 +1,7 @@
 package board2.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,11 +27,28 @@ public class board2Cont {
 
 	//글목록페이지
 	@RequestMapping("board2List.do")
-	public String board2List(board2 board2, Model model) throws Exception {
+	public String board2List(board2 board2, Model model, HttpServletRequest request, @PathVariable String pageNum) throws Exception {
 		System.out.println("board2List 까지 OK");
 		
 		List<board2> board2list = new ArrayList<board2>();
 		board2list = bs2.getBoard2List(board2);
+		
+
+		//페이징처리
+		int rowPerPage = 10; //
+		
+		if(pageNum == null || pageNum.equals("")) {
+			pageNum = "1";
+		}
+		int currentPage = Integer.parseInt(pageNum);
+		
+		int startRow = (currentPage -1)* rowPerPage +1; 
+		int endRow = startRow + rowPerPage +1;
+		board2.setStartRow(startRow);
+		board2.setEndRow(endRow);
+		
+		
+
 		
 		model.addAttribute("board2list", board2list);
 		
@@ -40,7 +59,7 @@ public class board2Cont {
 	@RequestMapping("board2WritePage.do")
 	public String board2WritePage(Model model, board2 board2) throws Exception {
 		System.out.println("board2WritePage 까지 OK");
-	
+
 		return "board2/board2Write";
 	}
 	
@@ -64,6 +83,9 @@ public class board2Cont {
 		System.out.println("board2Detail 까지 OK");
 
 		board2 board2list = bs2.select(num);
+		
+		//조회수
+		bs2.readcount(num);
 		
 		model.addAttribute("board2list", board2list);
 		

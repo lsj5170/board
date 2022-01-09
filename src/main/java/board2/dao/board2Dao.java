@@ -23,6 +23,12 @@ public interface board2Dao {
 
 	//글수정
 	int update(board2 board2);
+
+	//조회수
+	int readcount(int num);
+
+	//총 게시물 개수
+	int listcount(int num);
 	
 	
 }
