@@ -8,8 +8,26 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
+	/* 	window.onload=function() {
+	
+	 } */
 	$(function() {
-		$('#list').load('list.do?pageNum=${pageNum}');
+		$('#slist').load('${path}/slist/num/${board.num}')
+//		$('#list').load('${path}/list/pageNum/${pageNum}');
+		$('#repInsert').click(function() {
+			if (!frm.replytext.value) {
+				alert('댓글 입력후에 클릭하시오');
+				frm.replytext.focus();
+				return false;
+			}
+			var frmData = $('form').serialize();
+			// var frmData = 'replyer='+frm.replyer.value+'&bno='+
+			//				  frm.bno.value+'&replytext='+frm.replytext.value;				  
+			$.post('${path}/sInsert', frmData, function(data) {
+				$('#slist').html(data);
+				frm.replytext.value = '';
+			});
+		});
 	});
 </script>
 </head>
@@ -42,17 +60,22 @@
 				<td><pre>${board.content}</pre></td>
 			</tr>
 		</table>
-		
-		<a href="list.do?pageNum=${pageNum}" class="btn btn-info">목록</a> 
-		<a href="updateForm.do?num=${board.num}&pageNum=${pageNum}"
-		   class="btn btn-info">수정</a> 
-		<a href="deleteForm.do?num=${board.num}&pageNum=${pageNum}"
-		   class="btn btn-info">삭제</a> 
-		<a href="insertForm.do?nm=${board.num}&pageNum=${pageNum}"
-		   class="btn btn-info">답변</a> 
-		   <!-- 답변하고, 글작성하고 같은 mapper? 사용하고있어서 seq 못쓴것임 -->
-		<div id="list"></div>  <!-- 목록 불러온것 -->
-		
+		<a href="${path}/list/pageNum/${pageNum}" class="btn btn-info">목록</a>
+		<a href="${path}/updateForm/num/${board.num}/pageNum/${pageNum}"
+			class="btn btn-info">수정</a> <a
+			href="${path}/deleteForm/num/${board.num}/pageNum/${pageNum}"
+			class="btn btn-info">삭제</a> <a
+			href="${path}/insertForm/nm/${board.num}/pageNum/${pageNum}"
+			class="btn btn-info">답변</a>
+		<p>
+		<form name="frm" id="frm">
+			<input type="hidden" name="replyer" value="${board.writer}">
+			<input type="hidden" name="bno" value="${board.num}"> 댓글 :
+			<textarea rows="3" cols="50" name="replytext"></textarea>
+			<input type="button" value="확인" id="repInsert">
+		</form>
+		<div id="slist"></div>
+		<!-- <div id="list"></div> -->
 	</div>
 </body>
 </html>

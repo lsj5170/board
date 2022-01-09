@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
-
 <configuration>
 	<typeAliases>
 		<typeAlias alias="board" type="board1.model.Board" />
+		<typeAlias alias="rb" type="board1.model.ReplyBoard" />
+		<typeAlias alias="board2" type="board2.model.board2" />
 	</typeAliases>
-	<!-- <mappers>
+	<!-- 
+	<mappers>
 		<mapper resource="Board.xml" />
-	</mappers> -->
+		<mapper resource="ReplyBoard.xml" />
+	</mappers> 
+	-->
 </configuration>

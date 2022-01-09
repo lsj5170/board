@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board2">
+
+<insert id="insert" parameterType="board2">
+ insert into board2 values (BOARD2_SEQ.nextval, #{writer}, #{title}, #{content}, 0, sysdate)
+</insert>
+
+<select id="board2_list" parameterType="board2" resultType="board2">
+ select * from board2
+</select>
+
+<select id="select" parameterType="int" resultType="board2">
+ select * from board2 where #{num}=num
+</select>
+
+<delete id="delete" parameterType="int">
+ delete from board2 where #{num}=num
+</delete>
+
+<update id="update" parameterType="board2">
+ update board2 set title=#{title},content=#{content} where num=#{num}
+</update>
+
+</mapper>

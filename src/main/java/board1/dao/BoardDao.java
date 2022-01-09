@@ -1,6 +1,7 @@
 package board1.dao;
 
 import java.util.List;
+
 import board1.model.Board;
 
 public interface BoardDao {

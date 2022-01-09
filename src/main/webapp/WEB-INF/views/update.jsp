@@ -11,8 +11,8 @@
 <body>
 	<c:if test="${result > 0 }">
 		<script type="text/javascript">
-			alert("수정 성공 ");
-			location.href = "list.do?pageNum=${pageNum}";
+			alert("수정 성공");
+			location.href = "${path}/list/pageNum/${pageNum}";
 		</script>
 	</c:if>
 	<c:if test="${result <= 0 }">

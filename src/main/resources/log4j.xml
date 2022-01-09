@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.ch.board1">
+	<logger name="com.ch.sboard">
 		<level value="info" />
 	</logger>
 	

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +9,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-		location.href = "list.do";
-		//location.href="adminMail";
+		location.href = "board2List.do";
 	</script>
 </body>
 </html>

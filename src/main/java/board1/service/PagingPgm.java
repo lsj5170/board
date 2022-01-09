@@ -1,13 +1,13 @@
 package board1.service;
-//controller 폴더에 있어두됨
+
 public class PagingPgm {
-	private int total;				// 데이터 갯수
-	private int rowPerPage;			// 화면에 출력할 데이터 갯수
-	private int pagePerBlk = 10;    // 블럭당 페이지 갯수 (1개의 블럭당 10개의 페이지)
-	private int currentPage;		// 현재 페이지 번호
-	private int startPage;			// 각 블럭의 시작 페이지
-	private int endPage;            // 각 블럭의 끝 페이지
-	private int totalPage;			// 총 페이지 수
+	private int total;
+	private int rowPerPage;
+	private int pagePerBlk = 10;
+	private int currentPage;
+	private int startPage;
+	private int endPage;
+	private int totalPage;
 
 	public PagingPgm(int total, int rowPerPage, int currentPage) {
 		this.total = total;
@@ -15,8 +15,9 @@ public class PagingPgm {
 		this.currentPage = currentPage;
 		
 		totalPage = (int) Math.ceil((double) total / rowPerPage);
-		startPage = currentPage - (currentPage - 1) % pagePerBlk;	// 1,  11, 21...
-		endPage = startPage + pagePerBlk - 1;						// 10, 20, 30...
+		startPage = currentPage - (currentPage - 1) % pagePerBlk;
+		endPage = startPage + pagePerBlk - 1;
+		
 		if (endPage > totalPage)
 			endPage = totalPage;
 	}

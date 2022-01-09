@@ -1,7 +1,3 @@
--- 게시판
-select * from tab;
-select * from board;
-
 create table board (
 	num number primary key, -- key
 	writer varchar2(20) not null, -- 작성자
@@ -15,6 +11,8 @@ create table board (
 	re_level number not null, -- 들여쓰기
 	ip varchar2(20) not null, -- 작성자 ip
 	reg_date date not null, -- 작성일
-	del char(1) -- 삭제된 글인h지 여부 저장(링크안걸림)
+	del char(1)
 );
 update board set readcount = 51 where num = 250;
+
+select * from tab;

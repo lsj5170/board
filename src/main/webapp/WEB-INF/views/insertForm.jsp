@@ -11,7 +11,7 @@
 <body>
 	<div class="container" align="center">
 		<h2 class="text-primary">게시판 글쓰기</h2>
-		<form action="insert.do" method="post">
+		<form action="${path}/insert" method="post">
 			<input type="hidden" name="num" value="${num}"> 
 			<input type="hidden" name="ref" value="${ref}"> 
 			<input type="hidden" name="re_step" value="${re_step}"> 
@@ -36,8 +36,7 @@
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td><textarea rows="5" cols="30" name="content"
-							required="required"></textarea></td>
+					<td><textarea rows="5" cols="30" name="content"	required="required"></textarea></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit" value="확인"></td>

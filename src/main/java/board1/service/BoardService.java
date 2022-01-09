@@ -1,6 +1,7 @@
 package board1.service;
 
 import java.util.List;
+
 import board1.model.Board;
 
 public interface BoardService {
@@ -22,5 +23,4 @@ public interface BoardService {
 	int getMaxNum();
 
 	void updateRe(Board board);
-
 }
