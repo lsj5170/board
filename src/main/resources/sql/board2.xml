@@ -8,7 +8,10 @@
 </insert>
 
 <select id="board2_list" parameterType="board2" resultType="board2">
- select * from board2 order by num desc
+ select * from 
+ ( select a.* , rownum rn from
+ ( select * from board2 order by num desc) a )
+ where rn &gt;= #{startRow} and rn &lt;= #{endRow}
 </select>
 
 <select id="select" parameterType="int" resultType="board2">
@@ -27,7 +30,7 @@
  update board2 set readcount = readcount+1 where num=#{num}
 </update>
 
-<select id="listcount" resultType="int">
+<select id="listcount" parameterType="board2" resultType="int">
  select count(num) from board2
 </select>
 

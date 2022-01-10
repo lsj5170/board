@@ -30,7 +30,7 @@ public interface board2Service {
 	int readcount(int num);
 	
 	//총 게시물 개수
-	int listcount(int num);
+	int listcount(board2 board2);
 	
 	
 	

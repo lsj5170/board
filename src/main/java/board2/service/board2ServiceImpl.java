@@ -62,9 +62,9 @@ public class board2ServiceImpl implements board2Service {
 
 	//총 게시물 개수
 	@Override
-	public int listcount(int num) {
+	public int listcount(board2 board2) {
 		// TODO Auto-generated method stub
-		return bd2.listcount(num);
+		return bd2.listcount(board2);
 	}
 	
 }

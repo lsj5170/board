@@ -60,9 +60,9 @@ public class board2DaoImpl implements board2Dao {
 
 	//총 게시물 개수
 	@Override
-	public int listcount(int num) {
+	public int listcount(board2 board2) {
 		// TODO Auto-generated method stub
-		return st.selectOne("board2.listcount", num);
+		return st.selectOne("board2.listcount", board2);
 	}
 	
 }

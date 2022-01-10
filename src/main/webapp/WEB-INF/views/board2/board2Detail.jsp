@@ -10,14 +10,18 @@
 <meta charset="utf-8">
 <title>기본 게시판 상세페이지(board2)</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
 <body>
 
 <form>
-<table border=1>
-<caption>글 상세 페이지</caption>
+<table class="table" border=1>
+<h2>글 상세 페이지</h2>
 
+<tbody>
 <tr>
 <th>번호</th>
 <td>${board2list.num}</th>
@@ -40,7 +44,7 @@
 
 <tr>
 <th>작성일</th>
-<td><fmt:formatDate value="${board2list.regdate}" pattern="yyyy-MM-dd"/></td>
+<td><fmt:formatDate value="${board2list.regdate}" pattern="yyyy-MM-dd hh:mm"/></td>
 </tr>
 
 
@@ -56,8 +60,7 @@
 <input type="button" value="글삭제" onClick="location='${path}/board2Delete.do/num/${board2list.num}'">
 </td>
 </tr>
-
-
+</tbody>
 
 
 </table>

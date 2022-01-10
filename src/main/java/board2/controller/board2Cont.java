@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import board2.dao.board2Dao;
 import board2.model.board2;
+import board2.service.PagingPgm;
 import board2.service.board2Service;
 
 @Controller
@@ -24,33 +25,45 @@ public class board2Cont {
 	@Autowired
 	private board2Service bs2;
 	
+	//시작페이지
+	@RequestMapping("board2List.do")
+	public String board2ListMain() {
+		return "redirect:board2List.do/num/1";
+	}
+	
 
 	//글목록페이지
-	@RequestMapping("board2List.do")
-	public String board2List(board2 board2, Model model, HttpServletRequest request, @PathVariable String pageNum) throws Exception {
+	@RequestMapping("board2List.do/num/{num}")
+	public String board2List(board2 board2, Model model, HttpServletRequest request, @PathVariable String num) throws Exception {
 		System.out.println("board2List 까지 OK");
 		
-		List<board2> board2list = new ArrayList<board2>();
-		board2list = bs2.getBoard2List(board2);
 		
-
 		//페이징처리
-		int rowPerPage = 10; //
+		 final int rowPerPage = 10; //한개의 페이징당 게시글 개수
+		  
+		 if(num == null || num.equals("")) { 
+			 num = "1"; 
+			 } 
+		 
+		 int currentPage = Integer.parseInt(num); //현재페이지
+		 int total = bs2.listcount(board2); //총 게시물수
+		 int startRow = (currentPage -1)* rowPerPage +1; //시작페이징 
+		 int endRow = startRow + rowPerPage - 1;  //끝페이징
+		 PagingPgm pp = new PagingPgm(total, rowPerPage, currentPage);
+		 board2.setStartRow(startRow); 
+		 board2.setEndRow(endRow);
 		
-		if(pageNum == null || pageNum.equals("")) {
-			pageNum = "1";
-		}
-		int currentPage = Integer.parseInt(pageNum);
+		 int no = total - startRow +1;
 		
-		int startRow = (currentPage -1)* rowPerPage +1; 
-		int endRow = startRow + rowPerPage +1;
-		board2.setStartRow(startRow);
-		board2.setEndRow(endRow);
-		
-		
+		 
+	   List<board2> board2list = new ArrayList<board2>();
+	   board2list = bs2.getBoard2List(board2); 
 
 		
 		model.addAttribute("board2list", board2list);
+		model.addAttribute("no", no);
+		model.addAttribute("pp", pp);
+		
 		
 		return "board2/board2List";
 	}

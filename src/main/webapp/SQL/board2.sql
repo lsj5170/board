@@ -9,3 +9,10 @@ create table board2 (
 
 create sequence board2_seq 
 increment by 1 start with 1 nocache;
+
+
+select * from board2 order by num desc;
+
+select rownum rn from board2 where rn between startRow and endRow;
+
+select * from board2;
