@@ -32,6 +32,14 @@
 </tr>
 </thead>
 
+<c:if test="${empty board2list}">
+
+<tr>
+<td colspan="5" align="center">※게시글이 존재하지 않습니다.</td>
+</tr>
+
+</c:if>
+
 
 <c:set var="no1" value="${no}"></c:set>
 

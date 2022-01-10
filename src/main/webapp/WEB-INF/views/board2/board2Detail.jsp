@@ -14,6 +14,15 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
+<script type="text/javascript">
+function check(){
+	if(confirm("정말 삭제하시겠습니까?")==true){
+		location='${path}/board2Delete.do/num/${board2list.num}';
+		alert("삭제되었습니다.");
+	}
+}
+</script> 
+
 </head>
 <body>
 
@@ -57,7 +66,7 @@
 <td colspan="3" align="center">
 <input type="button" value="글목록" onClick="location='${path}/board2List.do'">
 <input type="button" value="글수정" onClick="location='${path}/board2UpdateForm.do/num/${board2list.num}'">
-<input type="button" value="글삭제" onClick="location='${path}/board2Delete.do/num/${board2list.num}'">
+<input type="button" value="글삭제" onClick="check()">
 </td>
 </tr>
 </tbody>

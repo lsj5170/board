@@ -30,7 +30,7 @@
 
 <tr>
 <th>제목</th>
-<td><input type="text" name="title" value="${board2list.title}" size="50"></td>
+<td><input type="text" name="title" id="title" value="${board2list.title}" size="50"></td>
 </tr>
 
 <tr>
@@ -59,7 +59,6 @@
 <td colspan="3" align="center">
 <input type="button" value="글목록" onClick="location='${path}/board2List.do'">
 <input type="button" value="글수정" onClick="location='${path}/board2Update.do/num/${board2list.num}'">
-<input type="button" value="글삭제" onClick="location='${path}/board2Delete.do/num/${board2list.num}'">
 </td>
 </tr>
 
