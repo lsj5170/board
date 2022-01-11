@@ -48,7 +48,7 @@
 <tbody>
 <tr>
 <td>${no1}</td>
-<td><a href="${path}/board2Detail.do/num/${board2.num}">${board2.title}</a></td>
+<td><a href="${path}/board2Detail.do/num/${board2.num}/pageNum/${pp.currentPage}">${board2.title}</a></td>
 <td>${board2.writer}</td>
 <td><fmt:formatDate value="${board2.regdate}" pattern="yyyy-MM-dd hh:mm" /></td>
 <td>${board2.readcount}</td>

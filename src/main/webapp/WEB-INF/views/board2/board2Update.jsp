@@ -57,8 +57,8 @@
 
 <tr>
 <td colspan="3" align="center">
-<input type="button" value="글목록" onClick="location='${path}/board2List.do'">
-<input type="button" value="글수정" onClick="location='${path}/board2Update.do/num/${board2list.num}'">
+<input type="button" value="글목록" onClick="location='${path}/board2List.do/pageNum/${pageNum}'">
+<input type="button" value="글수정" onClick="location='${path}/board2Update.do/pageNum/${pageNum}'">
 </td>
 </tr>
 

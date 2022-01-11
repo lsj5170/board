@@ -65,7 +65,8 @@ function check(){
 <tr>
 <td colspan="3" align="center">
 <input type="button" value="글목록" onClick="location='${path}/board2List.do'">
-<input type="button" value="글수정" onClick="location='${path}/board2UpdateForm.do/num/${board2list.num}'">
+<input type="button" value="글수정" 
+onClick="location='${path}/board2UpdateForm.do/num/${board2list.num}/pageNum/${pageNum}'">
 <input type="button" value="글삭제" onClick="check()">
 </td>
 </tr>
